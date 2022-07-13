@@ -117,4 +117,34 @@ const myVar = getRandomNumber();
 //The problematic function is f9()
 
 //---------
-//
+// Documenting Functions
+
+/**
+* This is a documentation comment
+*/
+
+/**
+   * Returns the sum of two numbers.
+   *
+   * @param x - The first input number
+   * @param y - The second input number
+   * @returns The sum of `x` and `y`
+   *
+   */
+  
+function getSum(x: number, y: number): number {
+    return x + y;
+  }
+
+/**
+ * Takes in fruit as strings and logs the the outcome of making the fruit salad
+ * @param fruit1 - first input fruit
+ * @param fruit2 - second input fruit
+ * @returns console log of salad
+ */
+
+function makeFruitSalad(fruit1: string, fruit2: string): void {
+  let salad = fruit1 + fruit2 + fruit2 + fruit1 + fruit2+ fruit1 + fruit1;
+  console.log(salad);
+}
+
