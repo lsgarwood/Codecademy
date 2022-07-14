@@ -94,3 +94,54 @@ let ordersArrayTSOne: [Pet, number][] = [
 //-------------------
 // Object Types
 
+// Define an object type for car
+let car: {make: string, model: string, year: number};
+ 
+car = {make: 'Toyota', model: 'Camry', year: 2020}; // No error
+//car = {make: 'Nissan', mode: 'Sentra', year: 2019};
+/*
+Error: Type '{make: string; mode: string; year: number;}' is not assignable to
+type '{make: string; model: string; year: number;}'.
+Object literal may only specify known properties, but 'mode' does not exist in
+type '{make: string; model: string; year: number;}'.
+Did you mean to write 'model'?
+*/
+//car = {make: 'Chevrolet', model: 'Monte Carlo', year: '1995'};
+// Error: Type 'string' is not assignable to type 'number'.
+
+function sayHappyBirthdayWithObject(personObject: {name: string, age: number, giftWish: string, success: boolean}) {
+  let output ='';
+  output += 'Happy Birthday '
+         + personObject.name + '! ';
+  output += 'You are now ' 
+         + personObject.age + ' years old! ';
+  output += 'Your birthday wish was to receive ' 
+         + personObject.giftWish 
+         + '. And guess what? You will ';
+  if (!personObject.success){
+    output += 'not ';
+  }
+  output += 'receive it! \n';
+  console.log(output);
+}
+
+let birthdayBabies: {name: string, age: number, giftWish: string, success: boolean}[] = [
+  {name: 'Liam', age: 0, giftWish: 'karate skills', success: false}, 
+  {name: 'Olivia', age: 0, giftWish: 'a bright future', success:true}, 
+  {name: 'Ava', age: 0, giftWish: '$0.25', success:true}
+]; 
+
+birthdayBabies.forEach(sayHappyBirthdayWithObject);
+
+//----------------
+// Type Alises
+
+// Add your type alias below:
+type Coord = [number, number, string, number, number, string];
+
+let codecademyCoordinates: Coord = [40, 43.2, 'N', 73, 59.8, 'W'];
+let bermudaTCoordinates: Coord = [25, 0 , 'N' , 71, 0, 'W'];
+
+//--------------
+// Function Types
+
