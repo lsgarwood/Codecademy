@@ -89,7 +89,7 @@ let ordersArrayTSOne: [Pet, number][] = [
   [Pet.Chinchilla1, 50]
 ]
 
-// ordersArrayTS.push(['HAMSTER', 1]); will case error as cannot now push 'HAMSTER'
+// ordersArrayTS.push(['HAMSTER', 1]); will cause error as cannot now push 'HAMSTER'
 
 //-------------------
 // Object Types
@@ -145,3 +145,28 @@ let bermudaTCoordinates: Coord = [25, 0 , 'N' , 71, 0, 'W'];
 //--------------
 // Function Types
 
+// Math Operations
+function add(a, b){return a+b }
+function subtract(a, b){return a-b }
+function multiply(a, b){return a*b}
+function divide(a, b){return a/b}
+function wrongAdd(a, b){return (a+b)+''}
+
+// Add your function type below:
+mathTutor(multiply);
+//mathTutor(wrongAdd); once type alias is creted below, this casues an error here with wrongAdd, as it now wont allow number and string to be passed in, only number
+
+// Math Tutor Function That Accepts a Callback
+function mathTutor(operationCallback: OperatorFunction) {
+  console.log("Let's learn how to", operationCallback.name,'!');
+  let value25 = operationCallback(2,5);
+  console.log('When we', operationCallback.name, '2 and 5, we get', value25, '.');
+  console.log('When we', operationCallback.name, value25, 'and 7, we get', operationCallback(value25,7), '.');
+  console.log('Now fill out this worksheet.');
+}
+
+// Call your functions below:
+type OperatorFunction = (arg0: number, arg1: number) => number;
+
+//---------------
+// 
