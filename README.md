@@ -1,4 +1,4 @@
-# Codecademy JavaScript and React Courses
+# Codecademy JavaScript and TypeScript Courses
 
 JavaScript course found here... https://www.codecademy.com/learn/introduction-to-javascript
 
