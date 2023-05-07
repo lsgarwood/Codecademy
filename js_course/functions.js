@@ -92,4 +92,73 @@ const plantNeedsWaterNow = (day) => {
 
 const plantNeedsWaterToday = day => day === 'Wednesday' ? true : false;
 
+//--------
+// Rock Paper Scissors
 
+const getUserChoice = (userInput) => {
+  userInput = userInput.toLowerCase();
+
+  if (
+    userInput === "rock" ||
+    userInput === "paper" ||
+    userInput === "scissors"
+  ) {
+    return userInput;
+  } else {
+    console.log("Please enter: rock, paper or scissors");
+  }
+};
+
+const getComputerChoice = () => {
+  randomNumber = Math.floor(Math.random() * 3);
+
+  if (randomNumber === 0) {
+    return "rock";
+  } else if (randomNumber === 1) {
+    return "paper";
+  } else {
+    return "scissors";
+  }
+};
+
+const determineWinner = (userChoice, computerChoice) => {
+  if (userChoice === computerChoice) {
+    return "This game is a tie!";
+  }
+
+  if (userChoice === "rock") {
+    if (computerChoice === "paper") {
+      return "The computer won!";
+    } else {
+      return "You won!";
+    }
+  }
+
+  if (userChoice === "paper") {
+    if (computerChoice === "scissors") {
+      return "The computer won!";
+    } else {
+      return "You won!";
+    }
+  }
+
+  if (userChoice === "scissors") {
+    if (computerChoice === "rock") {
+      return "The computer won!";
+    } else {
+      return "You won!";
+    }
+  }
+};
+
+const playGame = () => {
+  const userChoice = getUserChoice("rock");
+  console.log('You played: ' + userChoice);
+
+  const computerChoice = getComputerChoice();
+  console.log('The computer played: ' + computerChoice);
+
+  console.log(determineWinner(userChoice, computerChoice));
+};
+
+playGame();
