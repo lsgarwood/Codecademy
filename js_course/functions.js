@@ -162,3 +162,64 @@ const playGame = () => {
 };
 
 playGame();
+
+// --------------
+// Sleep Debt Calculator
+
+const getSleepHours = (day) => {
+  if (day === "monday") {
+    return 8;
+  } else if (day === "tuesday") {
+    return 7;
+  } else if (day === "wednesday") {
+    return 6;
+  } else if (day === "thursday") {
+    return 5;
+  } else if (day === "friday") {
+    return 4;
+  } else if (day === "saturday") {
+    return 3;
+  } else if (day === "sunday") {
+    return 2;
+  } else {
+    return "Error: Please enter a valid day of the week!";
+  }
+};
+
+//console.log(getSleepHours('tuesday'));
+//console.log(getSleepHours('wednesday'));
+//console.log(getSleepHours('pigeon'));
+
+const getActualSleepHours = () =>
+  getSleepHours("monday") +
+  getSleepHours("tuesday") +
+  getSleepHours("wednesday") +
+  getSleepHours("thursday") +
+  getSleepHours("friday") +
+  getSleepHours("saturday") +
+  getSleepHours("sunday");
+
+const getIdealSleepHours = () => {
+  const idealHours = 8;
+  return idealHours * 7;
+};
+
+//console.log(getActualSleepHours());
+//console.log(getIdealSleepHours());
+
+const calculateSleepDebt = () => {
+  const actualSleepHours = getActualSleepHours();
+  const idealSleepHours = getIdealSleepHours();
+
+  if (actualSleepHours === idealSleepHours) {
+    console.log("Great, You got the perfect amount of sleep this week!");
+  } else if (actualSleepHours > idealSleepHours) {
+    tooMuchSleep = actualSleepHours - idealSleepHours;
+    console.log("You got " + tooMuchSleep + " more hours sleep than needed this week!");
+  } else {
+    notEnoughSleep = idealSleepHours - actualSleepHours;
+    console.log("Get some rest, You need " + notEnoughSleep +" more hours sleep this week!");
+  }
+};
+
+calculateSleepDebt();
