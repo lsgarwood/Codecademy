@@ -79,11 +79,14 @@ console.log(groceryList);
 groceryList.unshift('popcorn');
 console.log(groceryList);
 
-console.log(groceryList.slice(1,4));
+console.log(groceryList.splice(1,4));
 console.log(groceryList);
+groceryList.splice(6, 8, "baguette");
 
 const pastaIndex = groceryList.indexOf('pasta');
 console.log(pastaIndex);
+
+console.log(groceryList.join(" "));
 
 //-------
 // arrays and functions
@@ -115,5 +118,43 @@ const target = numberClusters[2][1];
 console.log(target);
 
 //--------
-//
+// Secret message exercise
+
+let secretMessage = ['Learning', 'is', 'not', 'about', 'what', 'you', 'get', 'easily', 'the', 'first', 'time,', 'it', 'is', 'about', 'what', 'you', 'can', 'figure', 'out.', '-2015,', 'Chris', 'Pine,', 'Learn', 'JavaScript'];
+
+// check length
+// then remove last string
+// print tring to see and check length again
+// console.log(secretMessage.length);
+secretMessage.pop();
+// console.log(secretMessage);
+// console.log(secretMessage.length);
+
+
+// add two more strings to end of array
+secretMessage.push("to");
+secretMessage.push("program");
+// check array and length
+// console.log(secretMessage);
+// console.log(secretMessage.length);
+
+// replace "esily" with "right"
+secretMessage[7] = "right";
+// console.log(secretMessage);
+
+// remove first string in array
+secretMessage.shift();
+// console.log(secretMessage);
+
+// add "Programming" to start of the array
+secretMessage.unshift("Programming");
+// console.log(secretMessage);
+
+// remove "get right the first time"
+secretMessage.splice(6, 10, "know,");
+// console.log(secretMessage);
+
+console.log(secretMessage.join(" "));
+
+
 
