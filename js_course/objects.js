@@ -1,3 +1,31 @@
+/* 
+Let’s review what we learned in this Objects lesson:
+
+Objects store collections of key-value pairs.
+Each key-value pair is a property—when a property is a function it is known as a method.
+An object literal is composed of comma-separated key-value pairs surrounded by curly braces.
+You can access, add or edit a property within an object by using dot notation or bracket notation.
+We can add methods to our object literals using key-value syntax with anonymous function expressions as values or by using the new ES6 method syntax.
+We can navigate complex, nested objects by chaining operators.
+Objects are mutable—we can change their properties even when they’re declared with const.
+Objects are passed by reference— when we make changes to an object passed into a function, those changes are permanent.
+We can iterate through objects using the For...in syntax. 
+
+Let’s review the concepts covered in this Advanced Objects lesson:
+
+The object that a method belongs to is called the calling object.
+The this keyword refers to the calling object and can be used to access properties of the calling object.
+Methods do not automatically have access to other internal properties of the calling object.
+The value of this depends on where the this is being accessed from.
+We cannot use arrow functions as methods if we want to access other internal properties.
+JavaScript objects do not have built-in privacy, rather there are conventions to follow to notify other developers about the intent of the code.
+The usage of an underscore before a property name means that the original developer did not intend for that property to be directly changed.
+Setters and getter methods allow for more detailed ways of accessing and assigning properties.
+Factory functions allow us to create object instances quickly and repeatedly.
+There are different ways to use object destructuring: one way is the property value shorthand and another is destructured assignment.
+
+*/
+
 //creating object literals
 
 let fasterShip = {
@@ -159,3 +187,42 @@ for (let crewMember in spaceshipFive.crew) {
 for (let crewMember in spaceshipFive.crew) {
   console.log(`${spaceshipFive.crew[crewMember].name} : ${spaceshipFive.crew[crewMember].degree}`)
 }
+
+// ----------------
+// Meal Maker Exercise
+
+let menu = {
+  _meal: "",
+  _price: 0,
+
+  set meal(mealToCheck) {
+  if (typeof mealToCheck === "string") {
+    return this._meal = mealToCheck;
+  }
+  },
+
+  set price(priceToCheck) {
+  if (typeof priceToCheck === "number") {
+    return this._price = priceToCheck;
+    }
+  }, 
+
+  get todaysSpecial() {
+    if (this._meal && this._price) {
+      return `Today’s Special is ${this._meal} for £${this._price}!`;
+    } else {
+      return "Meal or price was not set correctly!";
+    }
+  }
+
+};
+
+// menu._meal = "steak";
+// menu._price = 20;
+// console.log(menu);
+
+menu.meal = "steak";
+menu.price = 20;
+console.log(menu);
+
+console.log(menu.todaysSpecial);
