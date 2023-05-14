@@ -200,3 +200,75 @@ console.log(robotEntries);
 const newRobotOne =  Object.assign({laserBlaster: true, voiceRecognition: true})
 
 console.log(newRobotOne);
+
+// ----------------
+// Team stats exercise
+
+const team = {
+  _players: [
+    {
+      firstName: "pete",
+      lastName: "wheeler",
+      age: 54,
+    },
+    {
+      firstName: "sandy",
+      lastName: "newton",
+      age: 25,
+    },
+    {
+      firstName: "betty",
+      lastName: "findhorn",
+      age: 32,
+    },
+  ],
+  _games: [
+    {
+      opponent: "Black Bears",
+      teamPoints: 20,
+      opponentPoints: 30,
+    },
+    {
+      opponent: "The Stranglers",
+      teamPoints: 44,
+      opponentPoints: 23,
+    },
+    {
+      opponent: "Whiskey Blues",
+      teamPoints: 55,
+      opponentPoints: 16,
+    },
+  ],
+
+  get players() {
+    return this._players;
+  },
+
+  get games() {
+    return this._games;
+  },
+
+  addPlayer(newFirstName, newLastName, newAge) {
+    let player = {
+      firstName: newFirstName,
+      lastName: newLastName,
+      age: newAge,
+    };
+    this.players.push(player);
+  },
+
+  addGame(newOpponent, newTeamPoints, newOpponentPoints) {
+    let game = {
+      oponent: newOpponent,
+      teamPoints: newTeamPoints,
+      opponentPoints: newOpponentPoints,
+    };
+    this.games.push(game);
+  },
+};
+
+team.addPlayer("bugs", "Bunny", 76);
+team.addGame("Titans", 100, 98);
+
+console.log(team.players);
+console.log(team.games);
