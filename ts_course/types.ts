@@ -126,3 +126,79 @@ if (filteredRestaurants.length === 0) {
 }
 
 console.log(result);
+
+// -------------
+// typeMart exercise
+
+// products.ts
+const products = [
+  {
+    name: 'fanny pack',
+    price: '30',
+    preOrder: true,
+  },
+  {
+    name: 'beanie',
+    price: '15',
+    preOrder: false,
+  },
+  {
+    name: 'tote bag',
+    price: '20',
+    preOrder: false,
+  },
+  {
+    name: 'shirt',
+    price: '20',
+    preOrder: true,
+  },
+  {
+    name: 'hoodie',
+    price: '43',
+    preOrder: true,
+  },
+];
+// export default products;
+
+// index.ts
+// import products from './products';
+
+const productName: string = 'tote bag';
+let shipping: number;
+let taxPercent: number;
+let taxTotal: number;
+let total: number;
+
+const product = products.filter(product => product.name === productName)[0];
+
+if (product.preOrder) {
+  console.log('We will send a message when your product is on its way');
+}
+
+const shippingAddress: string = "6 Steraman Walk, Gloucester";
+
+if (Number(product.price) > 25) {
+  shipping = 0;
+  console.log('The shipping is free over $25');
+} else {
+  shipping = 5;
+}
+
+if (shippingAddress.match('New York')) {
+  taxPercent = 0.1;
+  console.log('You paid NY tax')
+} else {
+  taxPercent = 0.05;
+}
+
+taxTotal = Number(product.price) * taxPercent;
+total = Number(product.price) + taxTotal + shipping;
+
+console.log(`
+Product:  ${product.name}
+Address:  ${shippingAddress}
+Price:    $${product.price}
+Tax:      $${taxTotal.toFixed(2)}
+Shipping: $${shipping.toFixed(2)}
+Total:    $${total.toFixed(2)}
+`);
